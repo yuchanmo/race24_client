@@ -1,17 +1,29 @@
 import 'package:get/get.dart';
+import 'package:race24_client/home/home_bindings.dart';
+import 'package:race24_client/home/home_page.dart';
 import 'package:race24_client/login/login_bindings.dart';
 import 'package:race24_client/login/login_view.dart';
-import 'package:race24_client/total/total_view.dart';
+import 'package:race24_client/test/test_bindings.dart';
+import 'package:race24_client/test/test_page.dart';
 
 part 'app_pages.dart';
 
 class AppRoutes {
   static final pages = [
-    GetPage(name: AppPages.HOME, page: () => TotalScreen()),
+    GetPage(
+      name: AppPages.HOME,
+      page: () => HomePage(),
+      binding: HomeBindings(),
+    ),
     GetPage(
       name: AppPages.LOGIN,
-      page: () => LoginScreen(),
+      page: () => const LoginScreen(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: AppPages.TEST,
+      page: () => TestPage(),
+      binding: TestBindings(),
     ),
   ];
 }

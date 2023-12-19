@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:race24_client/login/login_viewmodel.dart';
+import 'package:race24_client/routes/app_routes.dart';
 
 class LoginDeskTopScreen extends StatelessWidget {
-  const LoginDeskTopScreen({super.key});
+  LoginDeskTopScreen({super.key});
 
   final LoginViewModel _loginViewModel = Get.find();
 
@@ -13,60 +14,60 @@ class LoginDeskTopScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Center(
-          child: Container(
+          child: SizedBox(
             width: 500,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Icon(
+                const Icon(
                   Icons.account_circle,
                   size: 100,
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: '아이디',
                     border: OutlineInputBorder(),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextFormField(
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: '비밀번호',
                     border: OutlineInputBorder(),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () async {
                     // 로그인 버튼 동작 추가
                     print("press login button");
-                    await _loginViewModel.signInWithGoogle();
+                    //await _loginViewModel.signInWithGoogle();
                   },
-                  child: Text('로그인'),
+                  child: const Text('로그인'),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 OutlinedButton(
                   onPressed: () {
                     // 구글 로그인 버튼 동작 추가
                   },
-                  child: Text('구글 로그인'),
+                  child: const Text('구글 로그인'),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 OutlinedButton(
                   onPressed: () {
-                    // 카카오톡 로그인 버튼 동작 추가
+                    Get.offAllNamed(AppPages.HOME);
                   },
-                  child: Text('카카오톡 로그인'),
+                  child: const Text('카카오톡 로그인'),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextButton(
                   onPressed: () {
                     // 회원가입 버튼 동작 추가
                   },
-                  child: Text('회원가입'),
+                  child: const Text('회원가입'),
                 ),
               ],
             ),
