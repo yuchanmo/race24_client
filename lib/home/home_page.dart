@@ -23,16 +23,13 @@ class HomePage extends GetView<HomeController> {
             unselectedItemColor: Colors.blue[200],
             currentIndex: _vm.index.value,
             onTap: _vm.setIndex,
-            items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Page 1'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.search), label: 'Page 2'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.favorite), label: 'Page 3'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.shopping_cart), label: 'Page 4'),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: 'Page 5'),
+            items: [
+              ...homePageList
+                  .map((p) => BottomNavigationBarItem(
+                        icon: p.icon,
+                        label: p.pageName,
+                      ))
+                  .toList(),
             ],
           ),
         ),

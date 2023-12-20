@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:race24_client/home/home_bindings.dart';
 import 'package:race24_client/home/home_page.dart';
+import 'package:race24_client/home/intro/intro_bindings.dart';
+import 'package:race24_client/home/intro/intro_page.dart';
 import 'package:race24_client/login/login_bindings.dart';
 import 'package:race24_client/login/login_view.dart';
 import 'package:race24_client/test/test_bindings.dart';
@@ -13,7 +15,7 @@ class AppRoutes {
     GetPage(
       name: AppPages.HOME,
       page: () => HomePage(),
-      binding: HomeBindings(),
+      binding: HomeCompositeBindings(),
     ),
     GetPage(
       name: AppPages.LOGIN,
