@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:race24_client/home/widgets/w_home_app_bar.dart';
 import './intro_controller.dart';
 
 class IntroPage extends GetView<IntroController> {
@@ -10,17 +11,22 @@ class IntroPage extends GetView<IntroController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('IntroPage'),
-      ),
       body: Container(
-        child: Obx(() => Column(
-              children: _vm.companyInfoList
-                  .map(
-                    (element) => Text(element.description),
-                  )
-                  .toList(),
-            )),
+        child: Center(
+          child: Column(
+            children: [
+              const WHomeAppBar(),
+              Obx(() => Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: _vm.companyInfoList
+                        .map(
+                          (element) => Text(element.description),
+                        )
+                        .toList(),
+                  )),
+            ],
+          ),
+        ),
       ),
     );
   }
