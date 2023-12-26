@@ -20,10 +20,7 @@ class LoginDeskTopScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Icon(
-                  Icons.account_circle,
-                  size: 100,
-                ),
+                Image.asset('assets/images/race24.png', height: 200.0),
                 const SizedBox(height: 20),
                 TextFormField(
                   decoration: const InputDecoration(
@@ -43,7 +40,7 @@ class LoginDeskTopScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () async {
                     // 로그인 버튼 동작 추가
-                    print("press login button");
+                    Get.offAllNamed(AppPages.HOME);
                     //await _loginViewModel.signInWithGoogle();
                   },
                   child: const Text('로그인'),
@@ -52,6 +49,7 @@ class LoginDeskTopScreen extends StatelessWidget {
                 OutlinedButton(
                   onPressed: () {
                     // 구글 로그인 버튼 동작 추가
+                    Get.offAllNamed(AppPages.HOME);
                   },
                   child: const Text('구글 로그인'),
                 ),
@@ -66,6 +64,7 @@ class LoginDeskTopScreen extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     // 회원가입 버튼 동작 추가
+                    Get.offAllNamed(AppPages.HOME);
                   },
                   child: const Text('회원가입'),
                 ),

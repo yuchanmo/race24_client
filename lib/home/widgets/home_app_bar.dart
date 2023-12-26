@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:race24_client/common/widgets/w_fillout_container.dart';
+import 'package:race24_client/common/widgets/fillout_container.dart';
 import 'package:race24_client/styles/custom_colors.dart';
 
 const width10 = WidthContainer(width: 10.0);
