@@ -4,4 +4,5 @@ class AppPages {
   static const HOME = "/";
   static const LOGIN = "/login";
   static const ABOUT = "/about";
+  static const COURSE = "/course";
 }

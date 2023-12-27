@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 import 'package:race24_client/about/about_bindings.dart';
 import 'package:race24_client/about/about_page.dart';
 import 'package:race24_client/common/widgets/constraint_container.dart';
+import 'package:race24_client/course/course_bindings.dart';
+import 'package:race24_client/course/course_page.dart';
 import 'package:race24_client/home/home_bindings.dart';
 import 'package:race24_client/home/home_page.dart';
 import 'package:race24_client/login/login_bindings.dart';
@@ -31,6 +33,13 @@ class AppRoutes {
         widget: AboutPage(),
       ),
       binding: AboutBindings(),
+    ),
+    GetPage(
+      name: AppPages.COURSE,
+      page: () => const ConstraintContainer(
+        widget: CoursePage(),
+      ),
+      binding: CourseBindings(),
     ),
   ];
 }

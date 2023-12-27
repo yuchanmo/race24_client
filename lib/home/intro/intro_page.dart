@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:race24_client/common/widgets/wrap_container.dart';
 import 'package:race24_client/home/model/course_info.dart';
 import 'package:race24_client/home/widgets/home_app_bar.dart';
 import 'package:race24_client/routes/app_routes.dart';
@@ -43,14 +44,17 @@ class IntroPage extends StatelessWidget {
           // Add more customization as needed
           // You can add actions, leading, etc.
         ),
+        SliverToBoxAdapter(
+          child: WrapContainer(
+            widget: CardScrollWidget(),
+            containerTitle: "새로운 코스",
+          ), // 스크롤되는 Card 위젯
+        ),
         const SliverToBoxAdapter(
           child: SizedBox(
             height: 330,
             child: SilverListWidget(), // SilverList를 포함한 위젯
           ),
-        ),
-        SliverToBoxAdapter(
-          child: CardScrollWidget(), // 스크롤되는 Card 위젯
         ),
         const SliverToBoxAdapter(
           child: ListItemColumnWidget(), // Column 방향으로 스크롤되는 ListItem 위젯
@@ -102,31 +106,34 @@ class CourseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Color.fromARGB(137, 113, 111, 111),
-        borderRadius: BorderRadius.all(
-          Radius.circular(5),
-        ),
-      ),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 150,
-            width: 120,
-            child: Image.asset(course.courseBannerUrl),
+    return InkWell(
+      onTap: () => Get.toNamed(AppPages.COURSE),
+      child: Container(
+        decoration: const BoxDecoration(
+          color: Color.fromARGB(137, 113, 111, 111),
+          borderRadius: BorderRadius.all(
+            Radius.circular(5),
           ),
-          Text(
-            course.courseName,
-            style: const TextStyle(
-              fontWeight: FontWeight.w100,
-              color: Colors.white,
-              fontSize: 13,
+        ),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 150,
+              width: 120,
+              child: Image.asset(course.courseBannerUrl),
             ),
-          )
-        ],
-      ),
-    ).marginAll(10);
+            Text(
+              course.courseName,
+              style: const TextStyle(
+                fontWeight: FontWeight.w100,
+                color: Colors.white,
+                fontSize: 13,
+              ),
+            )
+          ],
+        ),
+      ).marginAll(10),
+    );
   }
 }
 
